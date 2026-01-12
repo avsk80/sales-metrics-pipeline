@@ -12,7 +12,10 @@ def test_monthly_sales_and_customers(spark):
     ]
     df = spark.createDataFrame(rows)
 
-    sales = {r["month"]: (r["total_sales_amount"], r["total_orders"]) for r in monthly_sales(df).collect()}
+    sales = {
+        r["month"]: (r["total_sales_amount"], r["total_orders"])
+        for r in monthly_sales(df).collect()
+    }
     customers = {r["month"]: r["unique_customers"] for r in monthly_unique_customers(df).collect()}
 
     assert sales["2026-01"] == (35.0, 3)

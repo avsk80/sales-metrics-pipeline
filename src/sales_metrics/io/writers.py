@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from typing import Optional
-
 from pyspark.sql import DataFrame
 
 
@@ -23,12 +21,7 @@ def write_parquet_partitioned(
       - "overwrite" for idempotent reruns
       - "append" for incremental writes (not used yet)
     """
-    (
-        df.write.mode(mode)
-        .format("parquet")
-        .partitionBy(partition_col)
-        .save(path)
-    )
+    (df.write.mode(mode).format("parquet").partitionBy(partition_col).save(path))
 
 
 def write_parquet(

@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-from typing import Any, Dict
+from typing import Any
 
 from pyspark.sql import SparkSession
 
 
-def build_spark(cfg: Dict[str, Any]) -> SparkSession:
+def build_spark(cfg: dict[str, Any]) -> SparkSession:
     """
     Build a SparkSession from merged config.
     Code stays constant across envs; only YAML changes.

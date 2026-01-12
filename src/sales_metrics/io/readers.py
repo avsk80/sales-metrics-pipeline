@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-from typing import Any, Dict
+from typing import Any
 
 from pyspark.sql import DataFrame, SparkSession
 
 
-def read_orders(spark: SparkSession, cfg: Dict[str, Any]) -> DataFrame:
+def read_orders(spark: SparkSession, cfg: dict[str, Any]) -> DataFrame:
     """
     Read bronze orders dataset.
 

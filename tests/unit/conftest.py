@@ -9,8 +9,7 @@ def spark():
     Local mode is fast and stable.
     """
     spark = (
-        SparkSession.builder
-        .appName("sales-metrics-unit-tests")
+        SparkSession.builder.appName("sales-metrics-unit-tests")
         .master("local[2]")
         .config("spark.ui.enabled", "false")
         .config("spark.sql.session.timeZone", "UTC")

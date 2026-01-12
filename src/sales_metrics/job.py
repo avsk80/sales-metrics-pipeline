@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import argparse
-from typing import Any, Dict
+from typing import Any
 
 import structlog
 from pyspark.sql import functions as F
@@ -24,7 +24,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def run(env: str, month: str) -> None:
-    cfg: Dict[str, Any] = load_config(env=env)
+    cfg: dict[str, Any] = load_config(env=env)
     spark = build_spark(cfg)
 
     log.info("job_start", env=env, month=month, app=cfg.get("app", {}).get("name"))

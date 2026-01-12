@@ -24,6 +24,4 @@ def monthly_unique_customers(df: DataFrame) -> DataFrame:
     Input: silver orders (must contain month, customer_id)
     Output: month, unique_customers
     """
-    return df.groupBy("month").agg(
-        F.countDistinct("customer_id").alias("unique_customers")
-    )
+    return df.groupBy("month").agg(F.countDistinct("customer_id").alias("unique_customers"))

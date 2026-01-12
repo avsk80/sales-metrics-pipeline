@@ -2,12 +2,12 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any
 
 import yaml
 
 
-def _deep_merge(base: Dict[str, Any], override: Dict[str, Any]) -> Dict[str, Any]:
+def _deep_merge(base: dict[str, Any], override: dict[str, Any]) -> dict[str, Any]:
     """
     Recursively merge override into base.
     Override wins on conflicts.
@@ -21,7 +21,7 @@ def _deep_merge(base: Dict[str, Any], override: Dict[str, Any]) -> Dict[str, Any
     return result
 
 
-def load_config(config_dir: str = "configs", env: str | None = None) -> Dict[str, Any]:
+def load_config(config_dir: str = "configs", env: str | None = None) -> dict[str, Any]:
     """
     Load base.yml + <env>.yml and return merged config.
     Priority: explicit env arg > ENV env var > 'local'
@@ -56,8 +56,6 @@ def load_config(config_dir: str = "configs", env: str | None = None) -> Dict[str
 
     missing = [p for p in required_paths if not paths.get(p)]
     if missing:
-        raise ValueError(
-            f"Missing required path configs for env='{env}': {missing}"
-        )
+        raise ValueError(f"Missing required path configs for env='{env}': {missing}")
 
     return cfg
