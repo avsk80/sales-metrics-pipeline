@@ -1,0 +1,18 @@
+app:
+  name: "sales-metrics-pipeline"
+
+spark:
+  app_name: "sales-metrics"
+  master: null        # overridden per env
+  configs:
+    spark.sql.session.timeZone: "UTC"
+    spark.sql.sources.partitionOverwriteMode: "dynamic"
+
+data:
+  format: "parquet"
+
+paths:
+  bronze_orders: null
+  silver_orders: null
+  gold_monthly_sales: null
+  gold_monthly_unique_customers: null

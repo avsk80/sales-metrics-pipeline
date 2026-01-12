@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "sales-metrics-pipeline"
+version = "0.1.0"
+description = ""
+authors = ["avsk80 <avskkrish80@gmail.com>"]
+packages = [{ include = "sales_metrics", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyyaml = "^6.0.3"
+structlog = "^25.5.0"
+pyspark = "3.5.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^9.0.2"
+ruff = "^0.14.11"
+pre-commit = "^4.5.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+exclude = [".venv", "data", "infra", "volumes"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]  # ruff formatter handles line length; keep lint less noisy
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

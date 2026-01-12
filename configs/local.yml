@@ -1,0 +1,10 @@
+env: "local"
+
+spark:
+  master: "local[*]"
+
+paths:
+  bronze_orders: "data/bronze/orders"
+  silver_orders: "data/silver/orders"
+  gold_monthly_sales: "data/gold/monthly_sales"
+  gold_monthly_unique_customers: "data/gold/monthly_unique_customers"
